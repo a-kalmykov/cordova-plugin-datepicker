@@ -1,0 +1,330 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="test.css">
+  <link rel="stylesheet" href="custom.css">
+</head>
+
+<body>
+  <div class="overlayMain" id="winjsoverlay">
+    <!-- <style type="text/css">
+      .overlayMain {
+        color: white;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        margin: 0 auto;
+        background: #000;
+        -ms-touch-action: none;
+      }
+
+      .overlayFooter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        width: 100%;
+        height: 10%;
+        display: table;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .pickerDivTable {
+        width: 90%;
+        height: 90%;
+        display: table;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .pickerDiv {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .tableHeadCell {
+        border-left: 1px solid;
+        border-right: 1px solid;
+        width: 14%
+      }
+
+      .tableBodyCell {
+        border: 1px solid;
+        width: 14%;
+      }
+
+      .selectedDateCell {
+        color: red;
+        border-color: red;
+      }
+
+      .calendarTableMain {
+        width: 100%;
+        height: 60%;
+        font-size: 34px;
+        position: relative;
+        top: -12%;
+        color: white;
+        text-align: center;
+      }
+
+      .outsideMonthCell {
+        color: grey;
+        border-color: grey;
+      }
+
+      .buttonStyle {
+        border: 3px solid white;
+        background: #000;
+        color: #FFF;
+        border-radius: 0;
+        width: 90%;
+        height: 90%;
+        font-size: 2em;
+      }
+
+      .footerLeftCell {
+        display: table-cell;
+        width: 50%;
+      }
+
+      .footerRightCell {
+        display: table-cell;
+        width: 50%;
+      }
+
+      .yearDiv {
+        width: 100%;
+        font-size: 34px;
+        position: relative;
+        top: -12%;
+      }
+
+      .monthDiv {
+        width: 100%;
+        font-size: 34px;
+        position: relative;
+        top: -12%;
+      }
+
+      .timePickerTable {
+        table-layout: fixed;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .timePickerLabel {
+        font-size: 34px;
+        color: white;
+        text-align: center;
+      }
+
+      .timePickerSelect {
+        border: 3px solid white;
+        background: #000;
+        color: #FFF;
+        border-radius: 0;
+        width: 90%;
+        height: 90%;
+        font-size: 2em;
+      }
+    </style> -->
+    <div class="overlayFooter">
+      <div class="footerLeftCell">
+        <button class="buttonStyle">Use</button>
+      </div>
+      <div class="footerRightCell">
+        <button class="buttonStyle">Cancel</button>
+      </div>
+    </div>
+    <div class="pickerDivTable">
+      <div class="pickerDiv" id="winjsdatetimepickerContainer">
+        <div class="calendarDiv">
+          <div class="yearDiv">
+            <span class="yearBeforeSpan">&lt; </span>
+            <span class="yearSpan">2018</span>
+            <span class="yearAfterSpan"> &gt;</span>
+          </div>
+          <div class="monthDiv">
+            <span class="monthBeforeSpan">&lt; </span>
+            <span class="monthSpan">‎August</span>
+            <span class="monthAfterSpan"> &gt;</span>
+          </div>
+          <table class="calendarTableMain">
+            <thead class="calendarTableHead">
+              <tr class="calendarTableRowHead">
+                <td class="tableHeadCell">‎Mon</td>
+                <td class="tableHeadCell">‎Tue</td>
+                <td class="tableHeadCell">‎Wed</td>
+                <td class="tableHeadCell">‎Thu</td>
+                <td class="tableHeadCell">‎Fri</td>
+                <td class="tableHeadCell">‎Sat</td>
+                <td class="tableHeadCell">‎Sun</td>
+              </tr>
+            </thead>
+            <tbody class="calendarTableBody">
+              <tr class="calendarTableRowBody">
+                <td class="tableBodyCell outsideMonthCell">30</td>
+                <td class="tableBodyCell outsideMonthCell">31</td>
+                <td class="tableBodyCell">1</td>
+                <td class="tableBodyCell">2</td>
+                <td class="tableBodyCell">3</td>
+                <td class="tableBodyCell">4</td>
+                <td class="tableBodyCell">5</td>
+              </tr>
+              <tr>
+                <td class="tableBodyCell">6</td>
+                <td class="tableBodyCell">7</td>
+                <td class="tableBodyCell">8</td>
+                <td class="tableBodyCell">9</td>
+                <td class="tableBodyCell">10</td>
+                <td class="tableBodyCell">11</td>
+                <td class="tableBodyCell">12</td>
+              </tr>
+              <tr>
+                <td class="tableBodyCell">13</td>
+                <td class="tableBodyCell">14</td>
+                <td class="tableBodyCell">15</td>
+                <td class="tableBodyCell">16</td>
+                <td class="tableBodyCell selectedDateCell">17</td>
+                <td class="tableBodyCell ">18</td>
+                <td class="tableBodyCell">19</td>
+              </tr>
+              <tr>
+                <td class="tableBodyCell">20</td>
+                <td class="tableBodyCell">21</td>
+                <td class="tableBodyCell">22</td>
+                <td class="tableBodyCell">23</td>
+                <td class="tableBodyCell">24</td>
+                <td class="tableBodyCell">25</td>
+                <td class="tableBodyCell">26</td>
+              </tr>
+              <tr>
+                <td class="tableBodyCell">27</td>
+                <td class="tableBodyCell">28</td>
+                <td class="tableBodyCell">29</td>
+                <td class="tableBodyCell">30</td>
+                <td class="tableBodyCell">31</td>
+                <td class="tableBodyCell outsideMonthCell">1</td>
+                <td class="tableBodyCell outsideMonthCell">2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <table class="timePickerTable">
+          <tr class="timePickerDescriptionRow">
+            <td class="timePickerLabel">hours</td>
+            <td class="timePickerLabel">minutes</td>
+          </tr>
+          <tr class="timePickerInputRow">
+            <td class="timePickerInputCell">
+              <select class="timePickerSelect" id="winjsdatepickerHours" data-tap-disabled="true">
+                <option value="0">00</option>
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+                <option value="4">04</option>
+                <option value="5">05</option>
+                <option value="6">06</option>
+                <option value="7">07</option>
+                <option value="8">08</option>
+                <option value="9">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option selected="selected" value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+              </select>
+            </td>
+            <td class="timePickerInputCell">
+              <select class="timePickerSelect" id="winjsdatepickerMinutes" data-tap-disabled="true">
+                <option value="0">00</option>
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+                <option value="4">04</option>
+                <option value="5">05</option>
+                <option value="6">06</option>
+                <option value="7">07</option>
+                <option value="8">08</option>
+                <option value="9">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option selected="selected" value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
