@@ -38,7 +38,14 @@ DatePicker.prototype.show = function(options, cb) {
 		date : '',
 		minDate: 0,
 		maxDate: 0,
-		clearText: 'Clear'
+    clearText: 'Clear',
+    cancelText: '',
+    okText: '',
+    locale: '',
+    cssRules: '',
+    firstDayOfWeek: 0,
+    hoursLabel: '',
+    minutesLabel: '',
 	};
 	for (var key in defaults) {
 		if (typeof options[key] !== "undefined") {
@@ -49,7 +56,7 @@ DatePicker.prototype.show = function(options, cb) {
 	var callback = function(message) {
 		if(message == -1){
 			cb(message);
-		} 
+		}
 		else {
 			var timestamp = Date.parse(message);
 			if(isNaN(timestamp) == false) {
