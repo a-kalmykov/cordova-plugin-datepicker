@@ -85,9 +85,10 @@ module.exports = {
 
       var locale = options.locale || 'en-us'; // 'en-us' | de-de
 
-      // for testing
-      options.firstDayOfWeek = 1;
-      //
+      var useButtonlabel = options.cancelText || 'Use';
+      var cancelButtonLabel = options.okText || 'Cancel';
+      var hoursLabel = options.hoursLabel || 'hours';
+      var minutesLabel = options.minutesLabel || 'minutes';
 
       var calendarFirstDayOfWeek = options.firstDayOfWeek || 0; // sunday = 0; monday = 1; etc.
 
@@ -115,14 +116,14 @@ module.exports = {
       rightCell.className = 'footerRightCell';
       overlayFooter.appendChild(rightCell);
       var cancelButton = document.createElement('button');
-      cancelButton.innerText = 'Cancel';
+      cancelButton.innerText = cancelButtonLabel;
       cancelButton.className = 'buttonStyle';
       cancelButton.addEventListener('click', function () {
         overlay.parentElement.removeChild(overlay);
       });
       rightCell.appendChild(cancelButton);
       var useButton = document.createElement('button');
-      useButton.innerText = 'Use';
+      useButton.innerText = useButtonlabel;
       useButton.className = 'buttonStyle';
       useButton.addEventListener('click', function () {
         console.log('resultDate: ' + resultDate.toLocaleDateString());
@@ -169,7 +170,7 @@ module.exports = {
       }
 
       if (pickertype.indexOf('time') >= 0) {
-        drawTimePicker()
+        drawTimePicker();
       }
 
       document.body.appendChild(overlay);
@@ -362,7 +363,7 @@ module.exports = {
 
           if (i == 0) {
             timePickerSelect.id = 'winjsdatepickerHours';
-            descriptionElement.textContent = 'hours';
+            descriptionElement.textContent = hoursLabel;
             descriptionElement.className = 'timePickerLabel';
 
             for (var h = 0; h <= 23; h++) {
@@ -379,7 +380,7 @@ module.exports = {
           }
           else if (i == 1) {
             timePickerSelect.id = 'winjsdatepickerMinutes';
-            descriptionElement.textContent = 'minutes';
+            descriptionElement.textContent = minutesLabel;
             descriptionElement.className = 'timePickerLabel';
 
             for (var m = 0; m <= 59; m++) {
