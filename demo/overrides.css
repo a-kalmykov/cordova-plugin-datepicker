@@ -177,4 +177,8 @@
   width: 90px;
 }
 
+.timePickerInputRow {
+  position: relative;
+}
+
 }
