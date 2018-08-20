@@ -114,6 +114,8 @@
   text-transform: unset;
   color: #999;
   margin: 0;
+}
+
 .yearDiv,
 .monthDiv {
   display: inline-block;
@@ -195,4 +197,7 @@
   opacity: .3;
 }
 
+.timePickerInputRow:after {
+  top: inherit;
+  bottom: 10px;
 }
