@@ -51,6 +51,11 @@
   border-right: 0;
 }
 
+.outsideMonthCell {
+  border-color: #333;
+  color: #333;
+}
+
 .buttonStyle {
   width: auto;
   font-family: "Segoe UI", sans-serif;
