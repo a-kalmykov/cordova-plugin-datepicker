@@ -12,6 +12,11 @@
   .timePickerLabel {
     font-size: 1em;
   }
+  .timePickerInputCell select {
+    font-size: 1.5em;
+    height: 40px !important;
+    width: 80px !important;
+  }
 }
 
 .pickerDivTable {
