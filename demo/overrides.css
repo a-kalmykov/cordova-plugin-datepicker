@@ -103,4 +103,58 @@
   text-transform: unset;
   color: #999;
   margin: 0;
+.yearDiv,
+.monthDiv {
+  display: inline-block;
+  width: 50%;
+  margin-left: -5px;
+  margin-bottom: 40px;
+}
+
+.monthBeforeSpan,
+.monthAfterSpan,
+.yearBeforeSpan,
+.yearAfterSpan {
+  position: relative;
+  text-indent: -9999px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0 20px;
+  opacity: .3;
+}
+
+.monthBeforeSpan:hover,
+.monthAfterSpan:hover,
+.yearBeforeSpan:hover,
+.yearAfterSpan:hover {
+  opacity: .7;
+}
+
+.monthBeforeSpan:before,
+.yearBeforeSpan:before,
+.monthAfterSpan:before,
+.yearAfterSpan:before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0;
+  width: 0;
+}
+
+.monthBeforeSpan:before,
+.yearBeforeSpan:before {
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+  right: 0;
+}
+
+.monthAfterSpan:before,
+.yearAfterSpan:before {
+  left: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid white;
+}
 }
