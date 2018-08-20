@@ -94,3 +94,9 @@
   display: inline-block;
   min-width: 150px;
 }
+
+.timePickerLabel {
+  text-transform: unset;
+  color: #999;
+  margin: 0;
+}
