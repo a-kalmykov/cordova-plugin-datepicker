@@ -17,3 +17,14 @@
   width: auto;
 }
 
+.overlayFooter button {
+  background: #222;
+}
+
+.calendarTableRowHead td {
+  height: auto;
+  border: none;
+  border-bottom: 1px solid #fff !important;
+  color: #999;
+}
+
