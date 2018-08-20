@@ -10,3 +10,10 @@
   text-align: center;
   display: block;
 }
+
+.footerLeftCell,
+.footerRightCell {
+  display: inline-block;
+  width: auto;
+}
+
