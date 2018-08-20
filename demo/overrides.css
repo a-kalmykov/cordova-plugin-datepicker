@@ -1,6 +1,15 @@
 .overlayMain {
   font-family: "Segoe UI", sans-serif;
 }
+@media (max-width: 720px) {
+  .overlayMain {
+    font-size: 12px;
+  }
+  .calendarTableMain {
+    font-size: 1.25em;
+  }
+}
+
 .pickerDivTable {
   width: 100%;
   table-layout: fixed;
