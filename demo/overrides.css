@@ -15,13 +15,6 @@
   table-layout: fixed;
 }
 
-.pickerDivTable td {
-  height: 50px;
-  vertical-align: bottom;
-  text-align: left;
-  padding: 5px;
-}
-
 .overlayFooter {
   background: #222;
   padding: 20px 0;
@@ -51,6 +44,13 @@
 
 .calendarTableMain {
   border-collapse: collapse;
+}
+
+.calendarTableMain td {
+  height: 50px;
+  vertical-align: bottom;
+  text-align: left;
+  padding: 5px;
 }
 
 .calendarTableMain tr td:first-child {
