@@ -56,6 +56,11 @@
   color: #333;
 }
 
+.selectedDateCell {
+  background: #0050EF;
+  color: #fff;
+  border-color: #fff;
+}
 .buttonStyle {
   width: auto;
   font-family: "Segoe UI", sans-serif;
