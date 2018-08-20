@@ -157,4 +157,13 @@
   border-bottom: 10px solid transparent;
   border-left: 10px solid white;
 }
+
+.timePickerInputCell select {
+  border-radius: 0px !important;
+  border: 0;
+  outline: 3px solid white;
+  height: 50px;
+  width: 90px;
+}
+
 }
