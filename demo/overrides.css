@@ -12,6 +12,12 @@
   .timePickerLabel {
     font-size: 1em;
   }
+
+  .yearDiv,
+  .monthDiv {
+    font-size: 1.75em;
+  }
+
   .timePickerInputCell select {
     font-size: 1.5em;
     height: 40px !important;
