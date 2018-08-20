@@ -90,3 +90,7 @@
   display: block;
 }
 
+.timePickerTable td {
+  display: inline-block;
+  min-width: 150px;
+}
