@@ -1,6 +1,17 @@
 .overlayMain {
   font-family: "Segoe UI", sans-serif;
 }
+.pickerDivTable {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.pickerDivTable td {
+  height: 50px;
+  vertical-align: bottom;
+  text-align: left;
+  padding: 5px;
+}
 
 .overlayFooter {
   background: #222;
