@@ -39,6 +39,11 @@
   color: #999;
 }
 
+
+.calendarTableMain {
+  border-collapse: collapse;
+}
+
 .buttonStyle {
   width: auto;
   font-family: "Segoe UI", sans-serif;
