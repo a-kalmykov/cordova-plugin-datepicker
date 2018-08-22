@@ -147,62 +147,6 @@ module.exports = {
       leftCell.appendChild(useButton);
       overlay.appendChild(overlayFooter);
 
-      if (pickertype.indexOf('date') >= 0) { // header of the calendar
-        var overlayHeader = document.createElement('div');
-        overlayHeader.className = 'overlayHeader';
-
-        var firstDayOfMonth = new Date(options.date.getFullYear(), options.date.getMonth(), 1);
-
-        var yearText = firstDayOfMonth.getFullYear();
-        var yearDiv = document.createElement('div');
-        yearDiv.className = 'yearDiv';
-        var yearBeforeSpan = document.createElement('span');
-        yearBeforeSpan.innerText = '< ';
-        yearBeforeSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear() - 1, firstDayOfMonth.getMonth(), 1);
-        });
-        yearBeforeSpan.className = 'yearBeforeSpan';
-        var yearAfterSpan = document.createElement('span');
-        yearAfterSpan.innerText = ' >';
-        yearAfterSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear() + 1, firstDayOfMonth.getMonth(), 1);
-        });
-        yearAfterSpan.className = 'yearAfterSpan';
-        var yearSpan = document.createElement('span');
-        yearSpan.innerText = yearText;
-        yearSpan.className = 'yearSpan';
-        yearDiv.appendChild(yearBeforeSpan);
-        yearDiv.appendChild(yearSpan);
-        yearDiv.appendChild(yearAfterSpan);
-
-        var monthText = firstDayOfMonth.toLocaleString(locale, { month: 'long' });
-        var monthDiv = document.createElement('div');
-        monthDiv.className = 'monthDiv';
-        var monthBeforeSpan = document.createElement('span');
-        monthBeforeSpan.innerText = '< ';
-        monthBeforeSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() - 1, 1);
-        });
-        monthBeforeSpan.className = 'monthBeforeSpan';
-        var monthAfterSpan = document.createElement('span');
-        monthAfterSpan.innerText = ' >';
-        monthAfterSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() + 1, 1);
-        });
-        monthAfterSpan.className = 'monthAfterSpan';
-        var monthSpan = document.createElement('span');
-        monthSpan.innerText = monthText;
-        monthSpan.className = 'monthSpan';
-        monthDiv.appendChild(monthBeforeSpan);
-        monthDiv.appendChild(monthSpan);
-        monthDiv.appendChild(monthAfterSpan);
-
-        overlayHeader.appendChild(yearDiv);
-        overlayHeader.appendChild(monthDiv);
-
-        overlay.appendChild(overlayHeader);
-      }
-
       var pickerDivTable = document.createElement('div');
       pickerDivTable.className = 'pickerDivTable';
       var pickerDiv = document.createElement('div');
@@ -220,7 +164,7 @@ module.exports = {
 
 
       if (pickertype.indexOf('date') >= 0) {
-        drawCalendar(options.date.getFullYear(), options.date.getMonth(), 1);
+        drawCalendar(options.date.getFullYear(), options.date.getMonth(), 1, overlay);
       }
 
       if (pickertype.indexOf('time') >= 0) {
@@ -258,7 +202,7 @@ module.exports = {
         }
       }
 
-      function drawCalendar(year, month, day) {
+      function drawCalendar(year, month, day, overlay) {
         calendarDiv.innerHTML = '';
 
         var firstDayOfMonth = new Date(year, month, day);
@@ -266,6 +210,58 @@ module.exports = {
         var dayOfWeekOfFirstOfMonth = firstDayOfMonth.getDay();
         console.log('firstDayOfMonth: ' + firstDayOfMonth.toLocaleDateString());
         console.log('dayOfWeekOfFirstOfMonth: ' + dayOfWeekOfFirstOfMonth);
+
+        var overlayHeader = document.createElement('div');
+        overlayHeader.className = 'overlayHeader';
+
+        var yearText = firstDayOfMonth.getFullYear();
+        var yearDiv = document.createElement('div');
+        yearDiv.className = 'yearDiv';
+        var yearBeforeSpan = document.createElement('span');
+        yearBeforeSpan.innerText = '< ';
+        yearBeforeSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear() - 1, firstDayOfMonth.getMonth(), 1, overlay);
+        });
+        yearBeforeSpan.className = 'yearBeforeSpan';
+        var yearAfterSpan = document.createElement('span');
+        yearAfterSpan.innerText = ' >';
+        yearAfterSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear() + 1, firstDayOfMonth.getMonth(), 1, overlay);
+        });
+        yearAfterSpan.className = 'yearAfterSpan';
+        var yearSpan = document.createElement('span');
+        yearSpan.innerText = yearText;
+        yearSpan.className = 'yearSpan';
+        yearDiv.appendChild(yearBeforeSpan);
+        yearDiv.appendChild(yearSpan);
+        yearDiv.appendChild(yearAfterSpan);
+
+        var monthText = firstDayOfMonth.toLocaleString(locale, { month: 'long' });
+        var monthDiv = document.createElement('div');
+        monthDiv.className = 'monthDiv';
+        var monthBeforeSpan = document.createElement('span');
+        monthBeforeSpan.innerText = '< ';
+        monthBeforeSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() - 1, 1, overlay);
+        });
+        monthBeforeSpan.className = 'monthBeforeSpan';
+        var monthAfterSpan = document.createElement('span');
+        monthAfterSpan.innerText = ' >';
+        monthAfterSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() + 1, 1, overlay);
+        });
+        monthAfterSpan.className = 'monthAfterSpan';
+        var monthSpan = document.createElement('span');
+        monthSpan.innerText = monthText;
+        monthSpan.className = 'monthSpan';
+        monthDiv.appendChild(monthBeforeSpan);
+        monthDiv.appendChild(monthSpan);
+        monthDiv.appendChild(monthAfterSpan);
+
+        overlayHeader.appendChild(yearDiv);
+        overlayHeader.appendChild(monthDiv);
+
+        overlay.appendChild(overlayHeader);
 
         var table = document.createElement('table');
 
