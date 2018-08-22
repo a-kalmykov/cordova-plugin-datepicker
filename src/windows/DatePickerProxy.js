@@ -151,6 +151,8 @@ module.exports = {
         var overlayHeader = document.createElement('div');
         overlayHeader.className = 'overlayHeader';
 
+        var firstDayOfMonth = new Date(options.date.getFullYear(), options.date.getMonth(), 1);
+
         var yearText = firstDayOfMonth.getFullYear();
         var yearDiv = document.createElement('div');
         yearDiv.className = 'yearDiv';
