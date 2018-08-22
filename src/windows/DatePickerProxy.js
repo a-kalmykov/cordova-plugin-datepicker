@@ -147,7 +147,59 @@ module.exports = {
       leftCell.appendChild(useButton);
       overlay.appendChild(overlayFooter);
 
+      if (pickertype.indexOf('date') >= 0) { // header of the calendar
+        var overlayHeader = document.createElement('div');
+        overlayHeader.className = 'overlayHeader';
 
+        var yearText = firstDayOfMonth.getFullYear();
+        var yearDiv = document.createElement('div');
+        yearDiv.className = 'yearDiv';
+        var yearBeforeSpan = document.createElement('span');
+        yearBeforeSpan.innerText = '< ';
+        yearBeforeSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear() - 1, firstDayOfMonth.getMonth(), 1);
+        });
+        yearBeforeSpan.className = 'yearBeforeSpan';
+        var yearAfterSpan = document.createElement('span');
+        yearAfterSpan.innerText = ' >';
+        yearAfterSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear() + 1, firstDayOfMonth.getMonth(), 1);
+        });
+        yearAfterSpan.className = 'yearAfterSpan';
+        var yearSpan = document.createElement('span');
+        yearSpan.innerText = yearText;
+        yearSpan.className = 'yearSpan';
+        yearDiv.appendChild(yearBeforeSpan);
+        yearDiv.appendChild(yearSpan);
+        yearDiv.appendChild(yearAfterSpan);
+
+        var monthText = firstDayOfMonth.toLocaleString(locale, { month: 'long' });
+        var monthDiv = document.createElement('div');
+        monthDiv.className = 'monthDiv';
+        var monthBeforeSpan = document.createElement('span');
+        monthBeforeSpan.innerText = '< ';
+        monthBeforeSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() - 1, 1);
+        });
+        monthBeforeSpan.className = 'monthBeforeSpan';
+        var monthAfterSpan = document.createElement('span');
+        monthAfterSpan.innerText = ' >';
+        monthAfterSpan.addEventListener('click', function () {
+          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() + 1, 1);
+        });
+        monthAfterSpan.className = 'monthAfterSpan';
+        var monthSpan = document.createElement('span');
+        monthSpan.innerText = monthText;
+        monthSpan.className = 'monthSpan';
+        monthDiv.appendChild(monthBeforeSpan);
+        monthDiv.appendChild(monthSpan);
+        monthDiv.appendChild(monthAfterSpan);
+
+        overlayHeader.appendChild(yearDiv);
+        overlayHeader.appendChild(monthDiv);
+
+        overlay.appendChild(overlayHeader);
+      }
 
       var pickerDivTable = document.createElement('div');
       pickerDivTable.className = 'pickerDivTable';
@@ -284,54 +336,6 @@ module.exports = {
           }());
         }
         tbody.appendChild(tbodyRow);
-
-        var monthText = firstDayOfMonth.toLocaleString(locale, { month: 'long' });
-        var yearText = firstDayOfMonth.getFullYear();
-
-        var yearDiv = document.createElement('div');
-        yearDiv.className = 'yearDiv';
-        var yearBeforeSpan = document.createElement('span');
-        yearBeforeSpan.innerText = '< ';
-        yearBeforeSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear() - 1, firstDayOfMonth.getMonth(), 1);
-        });
-        yearBeforeSpan.className = 'yearBeforeSpan';
-        var yearAfterSpan = document.createElement('span');
-        yearAfterSpan.innerText = ' >';
-        yearAfterSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear() + 1, firstDayOfMonth.getMonth(), 1);
-        });
-        yearAfterSpan.className = 'yearAfterSpan';
-        var yearSpan = document.createElement('span');
-        yearSpan.innerText = yearText;
-        yearSpan.className = 'yearSpan';
-        yearDiv.appendChild(yearBeforeSpan);
-        yearDiv.appendChild(yearSpan);
-        yearDiv.appendChild(yearAfterSpan);
-
-        var monthDiv = document.createElement('div');
-        monthDiv.className = 'monthDiv';
-        var monthBeforeSpan = document.createElement('span');
-        monthBeforeSpan.innerText = '< ';
-        monthBeforeSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() - 1, 1);
-        });
-        monthBeforeSpan.className = 'monthBeforeSpan';
-        var monthAfterSpan = document.createElement('span');
-        monthAfterSpan.innerText = ' >';
-        monthAfterSpan.addEventListener('click', function () {
-          drawCalendar(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth() + 1, 1);
-        });
-        monthAfterSpan.className = 'monthAfterSpan';
-        var monthSpan = document.createElement('span');
-        monthSpan.innerText = monthText;
-        monthSpan.className = 'monthSpan';
-        monthDiv.appendChild(monthBeforeSpan);
-        monthDiv.appendChild(monthSpan);
-        monthDiv.appendChild(monthAfterSpan);
-
-        calendarDiv.appendChild(yearDiv);
-        calendarDiv.appendChild(monthDiv);
         calendarDiv.appendChild(table);
       }
 
