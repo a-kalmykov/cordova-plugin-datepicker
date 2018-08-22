@@ -30,7 +30,8 @@
   table-layout: fixed;
 }
 
-.overlayFooter {
+.overlayFooter,
+.overlayHeader {
   background: #222;
   padding: 20px 0;
   height: auto;
