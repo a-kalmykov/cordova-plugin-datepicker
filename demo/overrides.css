@@ -47,6 +47,14 @@
   display: block;
 }
 
+.footerLeftCell .buttonStyle {
+  margin-right: 10px;
+}
+
+.footerRightCell .buttonStyle {
+  margin-left: 10px;
+}
+
 .footerLeftCell,
 .footerRightCell {
   display: inline-block;
