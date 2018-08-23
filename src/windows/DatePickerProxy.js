@@ -262,8 +262,14 @@ module.exports = {
         overlayHeader.appendChild(monthDiv);
 
         const oldOverlayHeader = overlay.querySelector('.overlayHeader');
-        overlay.insertBefore(overlayHeader, oldOverlayHeader);
-        overlay.removeChild(oldOverlayHeader);
+        if (oldOverlayHeader) {
+          overlay.insertBefore(overlayHeader, oldOverlayHeader);
+          overlay.removeChild(oldOverlayHeader);
+        } else if (overlay.children && overlay.children.length) {
+          overlay.insertBefore(overlayHeader, overlay.children[0]);
+        } else {
+          overlay.appendChild(overlayHeader);
+        }
 
         var table = document.createElement('table');
 
