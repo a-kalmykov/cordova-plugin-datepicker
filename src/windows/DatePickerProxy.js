@@ -261,7 +261,9 @@ module.exports = {
         overlayHeader.appendChild(yearDiv);
         overlayHeader.appendChild(monthDiv);
 
-        overlay.appendChild(overlayHeader);
+        const oldOverlayHeader = overlay.querySelector('.overlayHeader');
+        overlay.insertBefore(overlayHeader, oldOverlayHeader);
+        overlay.removeChild(oldOverlayHeader);
 
         var table = document.createElement('table');
 
