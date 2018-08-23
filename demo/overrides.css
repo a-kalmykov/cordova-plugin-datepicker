@@ -28,15 +28,31 @@
 .pickerDivTable {
   width: 100%;
   table-layout: fixed;
+  display: block;
+  overflow: scroll;
+}
+.pickerDiv {
+  display: block;
+  margin-bottom: 130px;
+  margin-top: 20px;
 }
 
-.overlayFooter {
+.overlayFooter,
+.overlayHeader {
   background: #222;
   padding: 20px 0;
   height: auto;
   box-sizing: border-box;
   text-align: center;
   display: block;
+}
+
+.footerLeftCell .buttonStyle {
+  margin-right: 10px;
+}
+
+.footerRightCell .buttonStyle {
+  margin-left: 10px;
 }
 
 .footerLeftCell,
@@ -122,7 +138,6 @@
   display: inline-block;
   width: 50%;
   margin-left: -5px;
-  margin-bottom: 40px;
 }
 
 .monthBeforeSpan,
