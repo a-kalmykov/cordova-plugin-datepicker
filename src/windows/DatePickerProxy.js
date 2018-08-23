@@ -85,8 +85,8 @@ module.exports = {
 
       var locale = options.locale || 'en-us'; // 'en-us' | de-de
 
-      var useButtonlabel = options.cancelText || 'Use';
-      var cancelButtonLabel = options.okText || 'Cancel';
+      var useButtonlabel = options.okText || 'Use';
+      var cancelButtonLabel = options.cancelText || 'Cancel';
       var hoursLabel = options.hoursLabel || 'hours';
       var minutesLabel = options.minutesLabel || 'minutes';
 
